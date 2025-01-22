@@ -1,0 +1,49 @@
+<view class="container">
+  <!-- 输入区域 -->
+  <view class="input-area">
+    <input class="input-box" value="{{inputText}}" disabled placeholder="点击键盘输入" />
+    <view class="input-actions">
+      <view class="action-btn" bindtap="onDelete">删除</view>
+      <view class="action-btn" bindtap="onClear">清空</view>
+    </view>
+  </view>
+
+  <!-- 模式切换 -->
+  <view class="mode-switch">
+    <view class="mode-btn {{mode === '3x3' ? 'active' : ''}}" 
+          data-mode="3x3" 
+          bindtap="onModeChange">3x3</view>
+    <view class="mode-btn {{mode === '4x4' ? 'active' : ''}}" 
+          data-mode="4x4" 
+          bindtap="onModeChange">4x4</view>
+  </view>
+
+  <!-- 字符集切换 -->
+  <view class="charset-switch">
+    <view class="charset-btn {{charset === 'number' ? 'active' : ''}}" 
+          data-charset="number" 
+          bindtap="onCharsetChange">数字</view>
+    <view class="charset-btn {{charset === 'letter' ? 'active' : ''}}" 
+          data-charset="letter" 
+          bindtap="onCharsetChange">字母</view>
+    <view class="charset-btn {{charset === 'symbol' ? 'active' : ''}}" 
+          data-charset="symbol" 
+          bindtap="onCharsetChange">符号</view>
+  </view>
+
+  <!-- 键盘区域 -->
+  <view class="keyboard {{isShuffling ? 'shuffling' : ''}} grid-{{mode}}">
+    <view class="key-btn {{showAnimation ? 'animate' : ''}}"
+          wx:for="{{keys}}" 
+          wx:key="*this"
+          data-character="{{item}}"
+          bindtap="onKeyTap">
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 打乱按钮 -->
+  <view class="shuffle-btn" bindtap="shuffleKeys">
+    打乱键盘
+  </view>
+</view> 

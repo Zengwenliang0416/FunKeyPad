@@ -1,0 +1,164 @@
+/* 容器 */
+.container {
+  min-height: 100vh;
+  padding: 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f8f8;
+}
+
+/* 输入区域 */
+.input-area {
+  width: 100%;
+  margin-bottom: 30rpx;
+}
+
+.input-box {
+  width: 100%;
+  height: 80rpx;
+  background: #fff;
+  border-radius: 12rpx;
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 32rpx;
+}
+
+.input-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20rpx;
+}
+
+.action-btn {
+  padding: 10rpx 30rpx;
+  background: #007AFF;
+  color: #fff;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+/* 模式切换 */
+.mode-switch {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.mode-btn {
+  padding: 10rpx 30rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.mode-btn.active {
+  background: #007AFF;
+  color: #fff;
+}
+
+/* 字符集切换 */
+.charset-switch {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.charset-btn {
+  padding: 10rpx 30rpx;
+  background: #fff;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.charset-btn.active {
+  background: #007AFF;
+  color: #fff;
+}
+
+/* 键盘区域 */
+.keyboard {
+  width: 100%;
+  display: grid;
+  gap: 20rpx;
+  padding: 20rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  margin-bottom: 30rpx;
+}
+
+.grid-3x3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4x4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.key-btn {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+  border-radius: 12rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 8rpx rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.key-btn:active {
+  transform: scale(0.95);
+  background: #e0e0e0;
+}
+
+.key-btn.animate {
+  animation: fadeIn 0.3s ease;
+}
+
+/* 打乱按钮 */
+.shuffle-btn {
+  padding: 20rpx 60rpx;
+  background: #34C759;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  box-shadow: 0 4rpx 8rpx rgba(52, 199, 89, 0.3);
+  transition: all 0.2s ease;
+}
+
+.shuffle-btn:active {
+  transform: scale(0.98);
+  background: #2eb350;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.shuffling .key-btn {
+  animation: shuffle 0.5s ease;
+}
+
+@keyframes shuffle {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9) rotate(10deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+} 
